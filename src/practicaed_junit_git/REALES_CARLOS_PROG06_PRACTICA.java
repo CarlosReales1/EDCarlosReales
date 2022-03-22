@@ -29,7 +29,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
         int players,rondas, score[];
         String nombres[];
         Scanner reader = new Scanner(System.in);
-        
+        boolean empate;
         players=asignarNJugadores(reader);
         nombres = new String[players];    
         ordenar_aleatoriamente(nombres);
