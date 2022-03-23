@@ -29,7 +29,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
         int players,rondas, score[];
         String nombres[];
         Scanner reader = new Scanner(System.in);
-        boolean empate;
+        
         players=asignarNJugadores(reader);
         nombres = new String[players];    
         ordenar_aleatoriamente(nombres);
@@ -221,19 +221,19 @@ public class REALES_CARLOS_PROG06_PRACTICA {
             
             switch(nOperador){
                 case 0:
-                    resultado = sumar(resultado,numeros[i]);
+                    resultado += numeros[i] ;
                     signos[i-1]=" + ";
                     break;
                     
                     
                 case 1:
-                    resultado = restar(resultado,numeros[i]);
+                    resultado -= numeros[i];
                     signos[i-1]=" - ";
                     break;
                     
                     
                 case 2:
-                    resultado = multiplicar(resultado,numeros[i]);
+                    resultado *= numeros[i];
                     signos[i-1]=" x ";
                     break;
             }
@@ -246,7 +246,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
   
 /**
  * Metodo que combina el array de numeros y de signos para crear la cadena de 
- * teto que será la pregunta y la imprime al jugador
+ * texto que será la pregunta y la imprime al jugador
  * @param nEnteros:lee la cantidad de numeros que usara como guia para el bucle for
  * @param numeros:lee los nuemros sobre los que se ha operado
  * @param signos: intercala los signos de las operaciones que se han ido realizando
@@ -265,38 +265,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
         System.out.println(pregunta);
         System.out.println("La respuesta seria: " + resultado);
     }
-    /**
-     * Funcion que realizara la suma
-     * @param a primero numero
-     * @param b segundo numero
-     * @return resultado
-     */
-    public static int sumar(int a, int b){
-        return a + b;
-        
-    }
-        
-        /**
-        * Funcion que realizara la resta
-        * @param a:primero numero
-        * @param b segundo numero
-        * @return resultado 
-         */
-    public static int restar(int a, int b){
-        return a - b;
-        
-    }
-          
-          /**
-        * Funcion que realizara la multiplicación
-        * @param a:primero numero
-        * @param b segundo numero
-        * @return resultado 
-           */
-    public static int multiplicar(int a, int b){
-        return a * b;
-        
-    }
+
     
     /**
      * Metodo que se encarga de dar la puntuacion al final de cada ronda
@@ -317,7 +286,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
      * @param score: puntos obtenidos en el juego
      * @param nombres lista de nombres de los jugadores
      */
-    public static void declararGanadores(int[] score, String[] nombres) {
+    public static int declararGanadores(int[] score, String[] nombres) {
         int puntuacionMayor = 0;
 
         //Obtenemos la puntuación mayor
@@ -325,16 +294,19 @@ public class REALES_CARLOS_PROG06_PRACTICA {
             if(score[i]>puntuacionMayor){
                 puntuacionMayor = score[i];
             }
-
+            
         }
         //Comprobamos la lista de puntos para saber queienes han alcanzado la mayor puntuacion
         System.out.print("Ha ganado "); 
         for(int i = 0; i < nombres.length; i++){
             if(score[i] == puntuacionMayor){
                 System.out.print(nombres[i] + ", ");
+                
             }
         }
         System.out.println("con " + puntuacionMayor + " puntos.");
+        return puntuacionMayor;
+        
     }
         
         
