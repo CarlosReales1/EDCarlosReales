@@ -22,7 +22,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
      * Basicamente inicializamos las variables basicas y llamamos en el orden 
      * necesario a las funciones creadas 
      * @param args 
-     * @author Carlos Reales &
+     * @author Carlos Reales 
      */
     public static void main(String[]args){
         
@@ -286,9 +286,9 @@ public class REALES_CARLOS_PROG06_PRACTICA {
      * @param score: puntos obtenidos en el juego
      * @param nombres lista de nombres de los jugadores
      */
-    public static int declararGanadores(int[] score, String[] nombres) {
+    public static String declararGanadores(int[] score, String[] nombres) {
         int puntuacionMayor = 0;
-
+        String nombresGanadores = "";
         //Obtenemos la puntuación mayor
         for(int i = 0; i < score.length; i++){
             if(score[i]>puntuacionMayor){
@@ -300,12 +300,14 @@ public class REALES_CARLOS_PROG06_PRACTICA {
         System.out.print("Ha ganado "); 
         for(int i = 0; i < nombres.length; i++){
             if(score[i] == puntuacionMayor){
-                System.out.print(nombres[i] + ", ");
+                nombresGanadores += (nombres[i] + ", ");
                 
             }
         }
-        System.out.println("con " + puntuacionMayor + " puntos.");
-        return puntuacionMayor;
+        
+       String puntuacionGanadores = ("con " + puntuacionMayor + " puntos.");
+       String declaracionGanadores = nombresGanadores.concat(puntuacionGanadores);
+       return declaracionGanadores;
         
     }
         

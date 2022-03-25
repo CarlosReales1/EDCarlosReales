@@ -226,12 +226,22 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
     @Test
     public void testDeclararGanadores() {
         System.out.println("declararGanadores");
-        int[] score = {5,4,3};
-        String[] nombres = {"Carlos","Ana","Ruben"};
-        REALES_CARLOS_PROG06_PRACTICA.declararGanadores(score, nombres);
+        int[] score = {5, 5 ,5};
+        String[] nombres = {"Carlos", "Ana", "Alberto"};
+        String expResult = "Carlos, Ana, Alberto, con 5 puntos.";
+        String result = REALES_CARLOS_PROG06_PRACTICA.declararGanadores(score, nombres);
+        System.out.println(result);
+        assertEquals(expResult, result);
         
+        System.out.println("declararGanadores");
+        int[] score2 = {6, 5 ,5};
+        String[] nombres2 = {"Carlos", "Ana", "Alberto"};
+        String expResult2 = "Carlos, con 6 puntos.";
+        String result2 = REALES_CARLOS_PROG06_PRACTICA.declararGanadores(score2, nombres2);
+        System.out.println(result2);
+        assertEquals(expResult2, result2);
         // TODO review the generated test code and remove the default call to fail.
-     
+        
     }
     
 }
