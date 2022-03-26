@@ -26,7 +26,7 @@ public class REALES_CARLOS_PROG06_PRACTICA {
      */
     public static void main(String[]args){
         
-        int players,rondas, score[];
+        int players,rondas, score[],respuesta, resultado;
         String nombres[];
         Scanner reader = new Scanner(System.in);
         
@@ -36,10 +36,21 @@ public class REALES_CARLOS_PROG06_PRACTICA {
         rondas = asignarRondas(reader);
         score = new int[players];
         Arrays.fill(score,0);
+         for(int j = 0;j<rondas;j++){
+            for(int i = 0; i < players; i++){
+                System.out.println("Turno para " + nombres[i]);
+          
+                resultado = crearOperacion();
+                respuesta = reader.nextInt();
+                
+                System.out.println(compararResultado(respuesta, resultado,score,i));
+                puntuarRonda(score, nombres);
+            }
+         }
         
-        desarrollarTurno(rondas, players, score, nombres, reader);
+       
         
-        declararGanadores(score, nombres); 
+       System.out.print(declararGanadores(score, nombres) ); 
     }
     
     /**
@@ -149,36 +160,29 @@ public class REALES_CARLOS_PROG06_PRACTICA {
     }
     
     /**
-     * Esta funcion se encarga de  desarrollar la partida segun los criterios
-     * de numero de rondas y número de jugadores introducidos
-     * @param rondas: numero de rondas previamente escogidas
-     * @param players: numero de jugadores tambien previamente asignados
+     * Esta funcion se encarga de  comparar el resultado de la operación con la
+     * respuesta dada por el usuario.En caso de ser cierta devolvera el string
+     * "Has acertado" y si no lo es devolverá"Has Fallado el resultado es: resultado"
+     * @param resultado la respuesta correcta a la operación
+     * @param respuesta la respuesta dada por el usuario
      * @param score: array que acumulara las puntuaciones
-     * @param nombres: array que contiene los nombres de los participantes en el juego
-     * @param reader:  variable que almacenará la respuesta de los jugadores
+     * @param i que jugador esta jugando, actuará de indice para la array score
+     * @return la cadena de texto segun haya acertado o fallado la operación
      */
-    public static void desarrollarTurno(int rondas, int players, int[] score, String[] nombres, Scanner reader) {
-        int resultado;
-        int respuesta;
-        
-        for(int j = 0;j<rondas;j++){
-            for(int i = 0; i < players; i++){
-                System.out.println("Turno para " + nombres[i]);
-                resultado = crearOperacion();
-                respuesta = reader.nextInt();
-                
-                
+    public static String compararResultado(int resultado, int respuesta, int[] score, int i) {
+                        
                 if (respuesta == resultado){
-                    System.out.println("¡¡¡Correcto!!!");
+                    
                     score[i]++;
+                    return "¡¡¡Correcto!!!";
                 }
-                else{System.out.println("¡Fallaste! El resultado correcto es: " + resultado);
+                else{
+ 
+                    return "¡Fallaste! El resultado correcto es: " + String.valueOf(resultado) ;
                 }
-               
-            }
-            puntuarRonda(score, nombres);
-        }
+ 
     }
+    
     
     /**
      * Metodo que genera la operación a mostrar. 

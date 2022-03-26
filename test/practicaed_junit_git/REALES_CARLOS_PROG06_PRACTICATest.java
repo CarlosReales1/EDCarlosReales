@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Rea
+ * @author aisca
  */
 public class REALES_CARLOS_PROG06_PRACTICATest {
     
@@ -50,20 +50,23 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
     }
 
     /**
-     * Al ser un metodo que utiliza la libreria Scanner no puede automatizarse
+     *  Al ser un metodo que utiliza la libreria Scanner y espera la respuesta del
+     * usuario, no puede automatizarse
      */
     @Test
     public void testAsignarNJugadores() {
         System.out.println("asignarNJugadores");
         Scanner reader = null;
-        int expResult = 2;
+        int expResult = 0;
         int result = REALES_CARLOS_PROG06_PRACTICA.asignarNJugadores(reader);
         assertEquals(expResult, result);
-   
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Al ser un metodo que utiliza la libreria Scanner no puede automatizarse
+     *  Al ser un metodo que utiliza la libreria Scanner y espera la respuesta del
+     * usuario, no puede automatizarse
      */
     @Test
     public void testOrdenar_aleatoriamente() {
@@ -75,18 +78,18 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
     }
 
     /**
-     * Al ser un metodo que utiliza la libreria Scanner no puede automatizarse
+     *  Al ser un metodo que utiliza la libreria Scanner y espera la respuesta del
+     * usuario, no puede automatizarse
      */
     @Test
     public void testAsignarRondas() {
         System.out.println("asignarRondas");
         Scanner reader = null;
         int expResult = 0;
-        
         int result = REALES_CARLOS_PROG06_PRACTICA.asignarRondas(reader);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -122,36 +125,51 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
     }
 
     /**
-     * Al ser un metodo que utiliza la libreria Scanner y que no devuelve nada
-     * no puede automatizarse
+     * Método que muestra al jugador la pregunta planteada en el método anterior
+     * y compara la respuesta  escrita en el teclado con el resultado de la operación, 
+     * calculado en anteriores métodos. En caso de acertar devolverá un string y
+     * sumará un punto. En caso de fallar devolverá otro string diferente
+     * 
+    * Clases de equivalencia:
+    *   Respuesta igual a Resultado
+    *   Respuesta diferente a resultado
+
      */
     @Test
-    public void testDesarrollarTurno() {
-        System.out.println("desarrollarTurno");
-        int rondas = 0;
-        int players = 0;
-        int[] score = null;
-        String[] nombres = null;
-        Scanner reader = null;
-        REALES_CARLOS_PROG06_PRACTICA.desarrollarTurno(rondas, players, score, nombres, reader);
+    public void testCompararResultado() {
+        System.out.println("compararResultado");
+        int resultado = 18;
+        int respuesta = 18;
+        int[] score = new int[1];
+        int i = 0;
+        String expResult = "¡¡¡Correcto!!!";
+        String result = REALES_CARLOS_PROG06_PRACTICA.compararResultado(resultado, respuesta, score, i);
+        assertEquals(expResult, result);
+
+        respuesta = 20;
+        resultado = 18;
+        String expResult2 = "¡Fallaste! El resultado correcto es: 18";
+        String result2 = REALES_CARLOS_PROG06_PRACTICA.compararResultado(resultado, respuesta, score, i);
+        assertEquals(expResult2, result2);
+
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
     /**
-     * Al ser un metodo que utiliza el metodo externo Math.random, no se puede automatizar
+     * Al ser un metodo que utiliza el metodo externo Math.random, y por  no se puede automatizar
      */
     @Test
     public void testCrearOperacion() {
         System.out.println("crearOperacion");
-        int expResult = 5;
+        int expResult = 0;
         int result = REALES_CARLOS_PROG06_PRACTICA.crearOperacion();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
     }
 
-    /**
+   /**
      * Al ser un metodo que utiliza el metodo externo Math.random, he hecho una simulacion 
      * modificada en los 3 casos supuestos de math random sobre un supuesto de 
      * 5 operaciones (0:suma, 1:resta, 2:multiplicación,1:resta,0:suma)
@@ -190,8 +208,9 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
 
     }
 
+
     /**
-     * Es un metodo que no devuelve nada, solo construye una frase y la imprime
+     *  Es un metodo que no devuelve nada, solo construye una frase y la imprime
      */
     @Test
     public void testPlantearPregunta() {
@@ -205,10 +224,8 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
         fail("The test case is a prototype.");
     }
 
-
-
     /**
-     * Es un metodo que no devuelve nada, solo construye una frase y la imprime
+     *Es un metodo que no devuelve nada, solo construye una frase y la imprime
      */
     @Test
     public void testPuntuarRonda() {
@@ -220,8 +237,9 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Es un metodo que no devuelve nada, solo construye una frase y la imprime
+        /**
+     * Es un metodo que recoge los parametros de la lista score y nombres, los compara
+     * para obtener un ganador (o varios, en caso de empate) y lo devuelve en forma de String
      */
     @Test
     public void testDeclararGanadores() {

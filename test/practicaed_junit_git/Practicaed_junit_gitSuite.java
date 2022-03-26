@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author Rea
+ * @author aisca
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({practicaed_junit_git.REALES_CARLOS_PROG06_PRACTICATest.class})
