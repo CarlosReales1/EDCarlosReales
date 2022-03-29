@@ -118,7 +118,8 @@ public class REALES_CARLOS_PROG06_PRACTICA {
 
         do {
             System.out.println("Elige el numero de rondas:\n 1.Partida Rapida\n 2.Partida Corta\n 3.Partida Normal\n 4.Partida Larga" );
-            rondas = reader.nextInt();}
+            rondas = reader.nextInt();
+        }
         while(rondas < 1 || rondas > 4);
         rondas = calcularRondas(rondas);        
         return rondas;

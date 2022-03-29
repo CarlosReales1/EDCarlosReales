@@ -157,7 +157,7 @@ public class REALES_CARLOS_PROG06_PRACTICATest {
     }
 
     /**
-     * Al ser un metodo que utiliza el metodo externo Math.random, y por  no se puede automatizar
+     * Al ser un metodo que utiliza el metodo externo Math.random, no se puede automatizar
      */
     @Test
     public void testCrearOperacion() {
